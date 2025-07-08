@@ -46,7 +46,6 @@ export async function createMashupPost(mashupDay: string, env: Env): Promise<voi
 		body: JSON.stringify(payload),
 	});
 }
-
 async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 	let before: string | undefined = undefined;
 	let keepGoing = true;
@@ -62,8 +61,20 @@ async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 			},
 		});
 
-		const messages: { id: string; pinned: boolean }[] = await res.json();
-		if (!messages || messages.length === 0) break;
+		if (!res.ok) {
+			const errorText = await res.text();
+			console.error(`[ERROR] Failed to fetch messages: ${res.status} ${errorText}`);
+			throw new Error(`Failed to fetch messages: ${res.status}`);
+		}
+
+		const messages = await res.json();
+
+		if (!Array.isArray(messages)) {
+			console.error('[ERROR] Unexpected message payload:', messages);
+			throw new Error('Expected messages to be an array');
+		}
+
+		if (messages.length === 0) break;
 
 		for (const msg of messages) {
 			if (!msg.pinned) {
@@ -74,7 +85,6 @@ async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 					},
 				});
 
-				// Respect rate limit: 5 deletes/sec per channel
 				await new Promise((res) => setTimeout(res, 200));
 			}
 		}
