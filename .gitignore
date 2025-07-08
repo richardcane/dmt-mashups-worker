@@ -170,3 +170,7 @@ dist
 
 .dev.vars
 .wrangler/
+
+# Environment files
+.env
+.env.local

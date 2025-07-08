@@ -1,7 +1,16 @@
 name = "dmt-mashups"
-main = "src/worker.js"
-workers_dev = true
-compatibility_date = "2025-07-08"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
 
-[observability]
+[env.development]
+vars = { DISCORD_WEBHOOK_URL = "" }
+
+[env.production]
+vars = { DISCORD_WEBHOOK_URL = "" }
+
+[unsafe.metadata.observability]
 enabled = true
+
+[triggers]
+crons = ["0 17 * * SUN", "0 17 * * THU"]
