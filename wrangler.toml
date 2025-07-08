@@ -4,10 +4,10 @@ compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
 [env.development]
-vars = { DISCORD_WEBHOOK_URL = "" }
+vars = { DISCORD_WEBHOOK_URL = "", DISCORD_PUBLIC_KEY = "", DISCORD_BOT_TOKEN = "" }
 
 [env.production]
-vars = { DISCORD_WEBHOOK_URL = "" }
+vars = { DISCORD_WEBHOOK_URL = "", DISCORD_PUBLIC_KEY = "", DISCORD_BOT_TOKEN = "" }
 
 [unsafe.metadata.observability]
 enabled = true
@@ -17,3 +17,7 @@ enabled = true
 
 [triggers]
 crons = ["0 17 * * SUN", "0 17 * * THU"]
+
+[[kv_namespaces]]
+binding = "ATTENDANCE_KV"
+id = "4c7a16beb2c44d90837d5b61e04bd6b9"
