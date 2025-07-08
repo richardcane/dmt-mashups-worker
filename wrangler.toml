@@ -12,5 +12,8 @@ vars = { DISCORD_WEBHOOK_URL = "" }
 [unsafe.metadata.observability]
 enabled = true
 
+[observability]
+enabled = true
+
 [triggers]
 crons = ["0 17 * * SUN", "0 17 * * THU"]
