@@ -3,11 +3,12 @@ main = "src/index.ts"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
-[env.development]
-vars = { DISCORD_WEBHOOK_URL = "", DISCORD_PUBLIC_KEY = "", DISCORD_BOT_TOKEN = "" }
-
-[env.production]
-vars = { DISCORD_WEBHOOK_URL = "", DISCORD_PUBLIC_KEY = "", DISCORD_BOT_TOKEN = "" }
+[vars]
+DISCORD_WEBHOOK_URL = ""
+DISCORD_PUBLIC_KEY = ""
+DISCORD_BOT_TOKEN = ""
+MONDAY_THREAD_ID = ""
+THURSDAY_THREAD_ID = ""
 
 [unsafe.metadata.observability]
 enabled = true
