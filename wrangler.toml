@@ -4,10 +4,8 @@ compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
-DISCORD_PUBLIC_KEY = ""
-DISCORD_BOT_TOKEN = ""
-MONDAY_THREAD_ID = ""
-THURSDAY_THREAD_ID = ""
+MONDAY_THREAD_ID = "1392256283649773741"
+THURSDAY_THREAD_ID = "1392261053043183626"
 
 [unsafe.metadata.observability]
 enabled = true

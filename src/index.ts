@@ -16,8 +16,7 @@ export default {
 		if (request.method === 'GET') {
 			// Manual test path
 			const url = new URL(request.url);
-			const mashupParam = url.searchParams.get('mashup');
-
+      const mashupParam = url.searchParams.get('mashup');
 			if (mashupParam !== 'Monday' && mashupParam !== 'Thursday') {
 				return new Response('{}', {
 					headers: { 'Content-Type': 'application/json' },
