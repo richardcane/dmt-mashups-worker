@@ -64,6 +64,8 @@ async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 		if (!res.ok) {
 			const errorText = await res.text();
 			console.error(`[ERROR] Failed to fetch messages: ${res.status} ${errorText}`);
+			console.error(`[DEBUG] Thread ID: ${threadId}`);
+			console.error(`[DEBUG] URL: ${url.toString()}`);
 			throw new Error(`Failed to fetch messages: ${res.status}`);
 		}
 
