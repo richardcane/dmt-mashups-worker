@@ -8,7 +8,8 @@
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy",
 		"start": "wrangler dev",
-		"cf-typegen": "wrangler types"
+		"cf-typegen": "wrangler types",
+		"monday": "curl -X GET http://localhost:8787?mashup=Monday"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20231025.0",

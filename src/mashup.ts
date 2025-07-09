@@ -51,9 +51,6 @@ async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 	let keepGoing = true;
 
   while (keepGoing) {
-		console.log('Fetching messages from thread ID:', threadId);
-		console.log('Full URL:', `https://discord.com/api/v10/channels/${threadId}/messages?limit=50`);
-
 		const url = new URL(`${API_BASE}/channels/${threadId}/messages`);
 		url.searchParams.set('limit', '50');
 		if (before) url.searchParams.set('before', before);

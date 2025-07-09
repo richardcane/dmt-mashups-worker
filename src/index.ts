@@ -3,7 +3,6 @@ import { createMashupPost } from './mashup';
 
 export interface Env {
 	ATTENDANCE_KV: KVNamespace;
-	DISCORD_WEBHOOK_URL: string;
 	DISCORD_PUBLIC_KEY: string;
 	DISCORD_BOT_TOKEN: string;
 	MONDAY_THREAD_ID: string;
