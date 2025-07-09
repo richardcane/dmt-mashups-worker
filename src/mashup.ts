@@ -40,7 +40,7 @@ export async function createMashupPost(mashupDay: string, env: Env): Promise<voi
 	await fetch(`${API_BASE}/channels/${threadId}/messages`, {
 		method: 'POST',
 		headers: {
-			Authorization: env.DISCORD_BOT_TOKEN,
+			Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify(payload),
@@ -57,7 +57,7 @@ async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 
 		const res = await fetch(url.toString(), {
 			headers: {
-				Authorization: env.DISCORD_BOT_TOKEN,
+				Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
 			},
 		});
 
@@ -81,7 +81,7 @@ async function deleteAllMessages(threadId: string, env: Env): Promise<void> {
 				await fetch(`${API_BASE}/channels/${threadId}/messages/${msg.id}`, {
 					method: 'DELETE',
 					headers: {
-						Authorization: env.DISCORD_BOT_TOKEN,
+						Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
 					},
 				});
 
